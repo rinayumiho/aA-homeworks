@@ -24,18 +24,25 @@ class Queue
     end
 
     def enqueue(el)
-        @arr << el
+        arr << el
     end
 
     def dequeue
-        raise "queue is empty!" if @arr.empty?
-        @arr.shift
+        raise "queue is empty!" if arr.empty?
+        arr.shift
     end
 
     def peek
-        raise "queue is empty!" if @arr.empty?
-        @arr[0]
+        raise "queue is empty!" if arr.empty?
+        arr[0]
     end
+
+    def show
+        arr.dup
+    end
+
+    private
+    attr_reader :arr
 end
 
 class Map
