@@ -1,0 +1,77 @@
+  [1m[35m (1204.8ms)[0m  [1m[35mCREATE DATABASE "app_name_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (1096.2ms)[0m  [1m[35mCREATE DATABASE "app_name_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (182.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (184.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3023990675252534715)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210725064800)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (120.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "session_token" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210725064800_create_users.rb:3
+  [1m[35m (86.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/migrate/20210725064800_create_users.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210725064800"]]
+  ↳ bin/rails:9
+  [1m[35m (34.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-25 07:26:53.644646"], ["updated_at", "2021-07-25 07:26:53.644646"]]
+  ↳ bin/rails:9
+  [1m[35m (27.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3023990675252534715)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga"], ["password_digest", "$2a$12$BqDT7EfRejOUhI5MdIY6ru4NCmG85OyQUXaJOW30r/0pevDePLm06"], ["session_token", "UkEctqZa-lNrx-YFHvyBEw"], ["created_at", "2021-07-25 07:47:51.729213"], ["updated_at", "2021-07-25 07:47:51.729213"]]
+  [1m[35m (88.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga"], ["password_digest", "$2a$12$9Uj/DJf5RC4oE2cHOS1Vp.67mLjo1RhgRNtTSDu047fu3a3Whfj1G"], ["session_token", "pXajaMd0vDRRD-ziP8KDxw"], ["created_at", "2021-07-25 07:50:15.897427"], ["updated_at", "2021-07-25 07:50:15.897427"]]
+  [1m[35m (27.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga"], ["password_digest", "$2a$12$F1egqxVSmV3II1RprOrO5eNvwR3DaZTHdiTSWzXO99tUoSbTF3qoG"], ["session_token", "b_w2nvvOkI1Wlsed4il5gw"], ["created_at", "2021-07-25 07:51:35.731690"], ["updated_at", "2021-07-25 07:51:35.731690"]]
+  [1m[35m (49.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga"], ["password_digest", "$2a$12$Sbk3GSogDMmCcq7wawQDb.wmZ6MB7P3QNGsVRwWrkMefk7GPuy3fG"], ["session_token", "kO5qUfqZVpK1olpMRsVLpA"], ["created_at", "2021-07-25 07:53:12.025669"], ["updated_at", "2021-07-25 07:53:12.025669"]]
+  [1m[35m (55.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga"], ["password_digest", "$2a$12$RkxLB1LfpaArj3KruX0qn..2kYcoLYE32zJgzFX8xDRBeDmbb6fna"], ["session_token", "1N3VU0btfIlrISBS6bHfdA"], ["created_at", "2021-07-25 07:58:27.847470"], ["updated_at", "2021-07-25 07:58:27.847470"]]
+  [1m[35m (52.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga3"], ["password_digest", "$2a$12$vklMlPEucozKOM6u/Ugd2e.VBL3f2BsU0jWZfBZ5Amzlwb03ZUUF."], ["session_token", "svKJu9oZf3q3iP4KRVTrsA"], ["created_at", "2021-07-25 07:59:34.037741"], ["updated_at", "2021-07-25 07:59:34.037741"]]
+  [1m[35m (54.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga4"], ["password_digest", "$2a$12$Cnr5./.rjiETSrBtjhue4.vVaoeFYVogjzSvebZLh7s40c2e7eNjq"], ["session_token", "hV18BtJrg4nIg1przCVIQg"], ["created_at", "2021-07-25 08:00:34.398046"], ["updated_at", "2021-07-25 08:00:34.398046"]]
+  [1m[35m (52.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga4"], ["password_digest", "$2a$12$0WhpIRk6udEjL0JWfS4GwuWJ8OPvGpqOFLOs9mOqrwPo1iOiPeaCG"], ["session_token", "0P0enJDhHLb1JPlda07peQ"], ["created_at", "2021-07-25 08:01:43.032255"], ["updated_at", "2021-07-25 08:01:43.032255"]]
+  [1m[35m (33.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "gaga4"], ["password_digest", "$2a$12$N06nDKTj/zw2N/hZ3yhstetBFkPsbqjvyzGk0ve1N4wOx6HYPZfI6"], ["session_token", "4D8gDZtujK1ySXsTVRgxxA"], ["created_at", "2021-07-25 08:10:09.956441"], ["updated_at", "2021-07-25 08:10:09.956441"]]
+  [1m[35m (52.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
