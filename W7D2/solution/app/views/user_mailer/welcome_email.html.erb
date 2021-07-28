@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html">
-</head>
-<body>
-    <h1>Welcome Mr./Ms. <%= @user.username %></h1>
-    <br>
-    <p>Login site: <%= @url %></p>
-    <br>
-    <p>Have fun!</p>
-</body>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to 99 Cats!, <%= @user.username %></h1>
+    <p>
+      You have successfully signed up to 99 Cats,
+      your username is: <%= @user.username %>.<br />
+      Please login <a href=<%=@url%>>Here</a>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
 </html>
